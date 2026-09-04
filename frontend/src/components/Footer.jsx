@@ -211,7 +211,7 @@ const Footer = () => {
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs md:text-sm text-slate-650">
 
             <span className="text-primary-700 font-semibold select-none">
-              Developed by TechnoVani Pvt Ltd
+              Developed by Yashwani Kushwaha
             </span>
 
           </div>
