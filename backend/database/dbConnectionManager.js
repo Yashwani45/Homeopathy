@@ -292,12 +292,22 @@ const tenantPools = {};
 // ONLINE DB CONNECTION DETAILS
 // ======================================================
 
-const dbHost = process.env.DB_HOST || "localhost";
-const dbPort = Number(process.env.DB_PORT || 3306);
-const dbUser = process.env.DB_USER || "root";
-const dbPassword = process.env.DB_PASSWORD || "";
-const dbName = process.env.DB_NAME || "super_admin_db";
+// const dbHost = process.env.DB_HOST || "localhost";
+// const dbPort = Number(process.env.DB_PORT || 3306);
+// const dbUser = process.env.DB_USER || "root";
+// const dbPassword = process.env.DB_PASSWORD || "";
+// const dbName = process.env.DB_NAME || "super_admin_db";
+const dbHost = process.env.DB_HOST;
+const dbPort = Number(process.env.DB_PORT);
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const dbName = process.env.DB_NAME || "defaultdb";
 
+if (!dbHost || !dbPort || !dbUser || !dbPassword) {
+  throw new Error(
+    "Missing DB environment variables. Check DB_HOST, DB_PORT, DB_USER and DB_PASSWORD in Render."
+  );
+}
 // ======================================================
 // DATABASE SSL CONFIGURATION
 // Aiven MySQL requires SSL
