@@ -302,7 +302,13 @@ const dbName = process.env.DB_NAME || "super_admin_db";
 // DATABASE SSL CONFIGURATION
 // Aiven MySQL requires SSL
 // ======================================================
-
+console.log("[DB CONFIG]", {
+  host: dbHost,
+  port: dbPort,
+  user: dbUser,
+  database: dbName,
+  ssl: !!dbSSL
+});
 const dbSSL =
   process.env.DB_SSL === "true"
     ? {
