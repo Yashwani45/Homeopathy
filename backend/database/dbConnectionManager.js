@@ -605,7 +605,14 @@ const superAdminDb = mysql.createPool({
   // Aiven/cloud connections may need more time
   connectTimeout: 10000,
 });
-
+superAdminDb.getConnection((err, connection) => {
+  if (err) {
+    console.error("[SUPER ADMIN DB TEST] FAILED:", err.message);
+  } else {
+    console.log("[SUPER ADMIN DB TEST] CONNECTED SUCCESSFULLY");
+    connection.release();
+  }
+});
 // ======================================================
 // 2. CENTRAL LOCAL MYSQL POOL
 // ======================================================
